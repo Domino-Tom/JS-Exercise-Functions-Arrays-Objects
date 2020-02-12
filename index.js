@@ -241,8 +241,16 @@ function getModelYears(inventory) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory, maxYear) {
+  let carsBeforeMaxYear = [];
+
+  for (let car in inventory) {
+    if (inventory[car].car_year <= maxYear) {
+      carsBeforeMaxYear.push(inventory[car]);
+    }
+  }
+
+  return carsBeforeMaxYear;
 }
 
 /**
@@ -256,8 +264,17 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  let germanBrands = ['Audi', 'Mercedes-Bens', 'Volkswagen', 'BMW'];
+  let carArray = [];
+
+  for (let x in inventory) {
+    if (germanBrands.indexOf(inventory[x].car_make) >= 0) {
+      carArray.push(inventory[x]);
+    }
+  }
+
+  return carArray;
 }
 
 /**
